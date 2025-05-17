@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # Mis apps
     'core',
+    'core.user',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Modelo de usuario que utilizaremos para la autenticaciòn
+AUTH_USER_MODEL = 'core_user.User'
