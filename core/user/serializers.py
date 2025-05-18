@@ -1,4 +1,4 @@
-from rest_fraemwork import serializers
+from rest_framework import serializers
 from core.user.models import User
 
 
