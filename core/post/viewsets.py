@@ -8,7 +8,7 @@ from core.post.models import Post
 from core.post.serializers import PostSerializer
 
 class PostViewSet(AbstractViewSet):
-    http_method_names = ('post', 'get')
+    http_method_names = ('post', 'get', 'put', 'delete')
     permissions_classes = (IsAuthenticated,)
     serializer_class = PostSerializer
 
@@ -28,3 +28,5 @@ class PostViewSet(AbstractViewSet):
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
