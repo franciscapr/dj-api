@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import models 
 from django.http import Http404
-from core.asbtract.models import AbstractModel, AbstractManager
+from core.abstract.models import AbstractModel, AbstractManager
 
 
 class UserManager(BaseUserManager, AbstractManager):
