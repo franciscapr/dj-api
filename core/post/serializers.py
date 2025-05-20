@@ -4,6 +4,7 @@ from rest_framework.exceptions import ValidationError
 from core.abstract.serializers import AbstractSerializer
 from core.post.models import Post
 from core.user.models import User
+from core.user.serializers import UserSerializer
 
 
 class PostSerializer(AbstractSerializer):
@@ -19,3 +20,10 @@ class PostSerializer(AbstractSerializer):
         # Lista de todos los campos que se pueden incluir en una solicitud o una respuesta
         fields = ['id', 'author', 'body', 'edited', 'created', 'updated']
         read_only_fields = ['edited']
+
+    def to_representation(self, instance):
+        rep = super().to_representation(instance)
+        author = User.objects.get_object_by_public_id(rep['author'])
+        rep['author'] = UserSerializer(author).data
+
+        return rep
