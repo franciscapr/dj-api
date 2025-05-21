@@ -9,7 +9,7 @@ from core.post.models import Post
 
 
 class CommentSerializer(AbstractSerializer):
-    author = serializers.SlugRelatedField(queryset=User.objects.all(), sluf_field='public_id')
+    author = serializers.SlugRelatedField(queryset=User.objects.all(), slug_field='public_id')
     post = serializers.SlugRelatedField(queryset=Post.objects.all(), slug_field='public_id')
 
     def validate_author(self, value):
