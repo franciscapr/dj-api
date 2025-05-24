@@ -30,11 +30,6 @@ class PostSerializer(AbstractSerializer):
             raise ValidationError("You can't create a post for another user.")
         return value
 
-    class Meta:
-        model = Post
-        # Lista de todos los campos que se pueden incluir en una solicitud o una respuesta
-        fields = ['id', 'author', 'body', 'edited', 'liked', 'likes_count', 'created', 'updated']
-        read_only_fields = ['edited']
 
     def to_representation(self, instance):
         rep = super().to_representation(instance)
@@ -49,3 +44,10 @@ class PostSerializer(AbstractSerializer):
 
         instance = super().update(instance, validated_data)
         return instance
+
+
+    class Meta:
+        model = Post
+        # Lista de todos los campos que se pueden incluir en una solicitud o una respuesta
+        fields = ['id', 'author', 'body', 'edited', 'liked', 'likes_count', 'created', 'updated']
+        read_only_fields = ['edited']
