@@ -1,5 +1,3 @@
-from django.test import TestCase
-
 import pytest
 
 from core.fixtures.user import user
@@ -12,4 +10,5 @@ def test_create_comment(user, post):
     """Test función para crear un comentario """
     comment = Comment.objects.create(author=user, post=post, body="Test Comment Body")
     assert comment.author == user
+    assert comment.post == post
     assert comment.body == "Test Comment Body"
